@@ -239,6 +239,8 @@ if __name__ == "__main__":
         if len(failStr) > 0:
             failStr += "\n"
         failStr = failStr + f"Ignored {duplicateCount} duplicate files."
+    if len(failStr) == 0:
+        failStr = "No errors to report."
     print(successStr)
     print(failStr)
     if hasTermuxApi:
