@@ -160,6 +160,10 @@ if __name__ == "__main__":
         exit(6)
     postJson = json.loads(apiResponse.read())
     apiConnection.close()
+
+    if not (("media" in postJson["tweet"]) or ("media_extended" in postJson)):
+        print("Error: Requested post does not have any media.", file = sys.stderr)
+        exit(6)
     postInformation = None
 
     try:
